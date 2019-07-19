@@ -48,7 +48,6 @@ class CategoryController extends Controller
             }
             $category->delete();
             return $this->swal("success", "Category Deleted", "The category was deleted successfully");
-
         } catch (\Exception $e) {
             return $this->swal("error", "Failed Deleting Category", $e->getMessage());
         }

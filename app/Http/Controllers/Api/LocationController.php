@@ -39,6 +39,5 @@ class LocationController extends Controller
         } catch (\Exception $e) {
             return $this->swal("error", "Error Deleting Location", $e->getMessage());
         }
-
     }
 }

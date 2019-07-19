@@ -1,8 +1,7 @@
 <template>
     <div>
-
-
         <form @submit.prevent="updatePrice">
+
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="priceInput">Price</label>
@@ -13,13 +12,17 @@
                     <button class="btn btn-primary">Update</button>
                 </div>
             </div>
+
         </form>
+
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
-            <th>Location</th>
-            <th>Parent Category</th>
-            <th>Category</th>
-            <th>Count</th>
+            <tr>
+                <th>Location</th>
+                <th>Parent Category</th>
+                <th>Category</th>
+                <th>Count</th>
+            </tr>
             </thead>
             <tbody>
             <tr v-for="item in items">
@@ -41,9 +44,6 @@
                 priceInput: 0.00,
                 items: [],
             }
-        },
-        mounted() {
-
         },
         methods: {
             updatePrice: function () {

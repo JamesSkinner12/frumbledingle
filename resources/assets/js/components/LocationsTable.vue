@@ -1,6 +1,7 @@
 <template>
     <div>
         <form @submit.prevent="createLocation">
+
             <div class="create-location-form input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Name</span>
@@ -10,12 +11,16 @@
                     <button class="btn btn-primary">Create</button>
                 </div>
             </div>
+
         </form>
+
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
-            <th>ID</th>
-            <th>Name</th>
-            <th></th>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th></th>
+            </tr>
             </thead>
             <tbody>
             <tr v-for="row in locations" :key="row.id">

@@ -1,6 +1,7 @@
 <template>
     <div>
         <form @submit.prevent="createCategory">
+
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="categoryName">Name</label>
@@ -8,6 +9,7 @@
                 <input v-model="newCategory.name" type="text" id="categoryName" class="form-control"
                        placeholder="Category Name" required/>
             </div>
+
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="categoryParent">Parent</label>
@@ -17,7 +19,9 @@
                     <option v-for="parent in categories" v-bind:value="parent.id">{{ parent.name }}</option>
                 </select>
             </div>
+
             <button class="btn btn-primary mb-3 float-right">Create</button>
+
         </form>
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
