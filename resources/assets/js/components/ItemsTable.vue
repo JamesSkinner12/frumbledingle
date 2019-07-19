@@ -12,8 +12,8 @@
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="price">Price</label>
                 </div>
-                <input v-model="newItem.price" min="0" type="number" id="price" class="form-control"
-                       placeholder="Price" required/>
+                <input v-model="newItem.price" min="0" step=".01" type="number" id="price" class="form-control"
+                       placeholder="0.00" required/>
             </div>
 
             <div class="input-group mb-3">
@@ -34,19 +34,17 @@
                     <option v-for="location in locations" v-bind:value="location.id">{{ location.name }}</option>
                 </select>
             </div>
-            <button class="btn btn-primary">Create</button>
+            <button class="btn btn-primary mb-3 float-right">Create</button>
         </form>
 
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Category</th>
-                <th>Location</th>
-                <th>Price</th>
-                <th></th>
-            </tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Location</th>
+            <th>Price</th>
+            <th></th>
             </thead>
             <tbody>
             <tr v-for="item in items" :key="item.id">

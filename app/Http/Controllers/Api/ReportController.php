@@ -12,6 +12,9 @@ class ReportController extends Controller
     public function itemPriceReport(Request $request)
     {
         $inputPrice = $request->input('price');
+        if (!is_numeric($inputPrice)) {
+            return [];
+        }
         return $this->json($this->getData($inputPrice));
     }
 
