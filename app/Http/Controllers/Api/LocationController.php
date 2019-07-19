@@ -10,12 +10,22 @@ class LocationController extends Controller
 {
     public function index()
     {
-        return response()->json(Location::get());
+        return $this->json(Location::get());
     }
 
     public function store(Request $request)
     {
-        Location::create(['name' => $request->input('name')]);
+        try {
+            if (Location::whereName($request->input('name'))->exists()) {
+                throw new \Exception("The provided location already exists");
+            }
+            Location::create([
+                'name' => $request->input('name')
+            ]);
+            return $this->swal("success", "Location Created", "The location has been successfully created");
+        } catch (\Exception $e) {
+            return $this->swal("error", "Error Creating Location", $e->getMessage());
+        }
     }
 
     public function destroy(Location $location)
@@ -27,7 +37,7 @@ class LocationController extends Controller
             $location->delete();
             return $this->swal("success", "Location Deleted", "The location was deleted successfully");
         } catch (\Exception $e) {
-            return $this->swal('error', 'Error Deleting Location', $e->getMessage());
+            return $this->swal("error", "Error Deleting Location", $e->getMessage());
         }
 
     }

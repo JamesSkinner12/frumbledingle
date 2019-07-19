@@ -12,7 +12,7 @@ class Locations {
     }
 
     static create(input) {
-        return axios.post('/api/locations', imput).then(function (result) {
+        return axios.post('/api/locations', input).then(function (result) {
             return result.data;
         });
     }

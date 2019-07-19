@@ -34,6 +34,7 @@
 
 <script>
     import Locations from '../lib/Locations';
+    import Swal from 'sweetalert2';
 
     export default {
         data() {
@@ -53,12 +54,18 @@
             },
             createLocation() {
                 Locations.create(this.newLocationName)
+                    .then(result => {
+                        Swal.fire(result);
+                    })
                     .then(this.getLocations)
                     .then(() => this.newLocationName = {name: null})
                     .catch(console.error);
             },
             deleteLocation(id) {
                 Locations.delete(id)
+                    .then(result => {
+                        Swal.fire(result)
+                    })
                     .then(this.getLocations)
                     .catch(console.error);
             }
