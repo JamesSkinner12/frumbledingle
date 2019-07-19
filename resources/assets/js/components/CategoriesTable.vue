@@ -6,7 +6,7 @@
                     <label class="input-group-text" for="categoryName">Name</label>
                 </div>
                 <input v-model="newCategory.name" type="text" id="categoryName" class="form-control"
-                       placeholder="Category Name"/>
+                       placeholder="Category Name" required/>
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
